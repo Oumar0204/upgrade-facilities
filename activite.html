@@ -2,135 +2,171 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Upgrade Facilities</title>
+<title>Nos Activités – Upgrade Facilities</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ---------- Styles globaux ---------- */
+
+/* ===== GLOBAL ===== */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: #f5f6f8;
     color: #222;
-    line-height: 1.6;
 }
 
-ul { padding-left: 20px; }
+h2, h3 {
+    color: #0f2a44;
+}
 
-/* ---------- Menu fixe ---------- */
+p {
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* ===== MENU ===== */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
     background: #0f2a44;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
 nav ul {
     margin: 0;
-    padding: 8px 20px; /* réduit la taille */
+    padding: 10px 20px;
     display: flex;
     justify-content: center;
     list-style: none;
     flex-wrap: wrap;
-    transition: max-height 0.3s ease;
-    overflow: hidden;
 }
 
-nav ul li { margin: 0 12px; }
+nav ul li {
+    margin: 0 15px;
+}
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 15px;
-    transition: color 0.2s;
 }
 
-nav ul li a:hover { color: #ffd700; }
+nav ul li a:hover {
+    color: #ffd700;
+}
 
-/* Hamburger bouton */
 .hamburger {
     display: none;
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 26px;
     color: white;
     cursor: pointer;
-    padding: 10px 15px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
 }
 
-/* ---------- Header ---------- */
+/* ===== HEADER ===== */
 header {
     background: #0f2a44;
     color: white;
+    text-align: center;
     padding: 100px 20px 60px;
-    text-align: center;
 }
 
-header h1 { margin: 0; font-size: 38px; }
-header p { margin-top: 15px; font-size: 18px; max-width: 800px; margin-left: auto; margin-right: auto; }
+.logo {
+    max-width: 380px;
+    width: 90%;
+    margin-bottom: 20px;
+}
 
-.logo { max-width: 420px; width: 90%; margin-bottom: 25px; }
+header p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+}
 
-/* ---------- Sections ---------- */
-section { max-width: 1200px; margin: auto; padding: 60px 20px; }
+/* ===== SECTION ===== */
+section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+}
 
-.box {
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.section-title span {
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: #ffd700;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* ===== ACTIVITIES GRID ===== */
+.activities {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.activity-card {
     background: white;
-    padding: 30px 25px;
-    margin-bottom: 40px;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    transition: transform 0.2s;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.box:hover { transform: translateY(-3px); }
-
-h2 {
-    color: #0f2a44;
-    font-size: 30px;
-    margin-bottom: 25px;
-    letter-spacing: 0.5px;
-    cursor: default; /* plus repliable */
+.activity-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
 }
 
-p, li { font-size: 16px; line-height: 1.65; }
-
-/* ---------- Activités et Réalisations ---------- */
-.activities, .realisations {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.activity-card, .realisations-card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-    flex: 1 1 45%;
-    max-width: 500px;
-    min-height: 220px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.activity-card:hover, .realisations-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-.activity-card img, .realisations-card img {
+.activity-card img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    height: 220px;
+    object-fit: cover;
 }
 
-/* ---------- Footer ---------- */
+.activity-content {
+    padding: 25px;
+}
+
+.activity-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.activity-content p {
+    margin: 0;
+    color: #444;
+}
+
+/* ===== REALISATIONS ===== */
+.realisations {
+    margin-top: 80px;
+}
+
+.realisations img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* ===== FOOTER ===== */
 footer {
     background: #0f2a44;
     color: white;
@@ -139,33 +175,53 @@ footer {
     font-size: 14px;
 }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 1024px) {
-    .activity-card, .realisations-card { flex: 1 1 48%; min-height: 200px; }
-}
-
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    .activity-card, .realisations-card { flex: 1 1 100%; min-height: auto; }
-    header { padding: 60px 15px 30px; }
-    h2 { font-size: 24px; }
-    p, li { font-size: 15px; }
-    nav ul { flex-direction: column; max-height: 0; }
-    nav ul.show { max-height: 500px; }
-    nav ul li { margin: 10px 0; text-align: center; }
-    .hamburger { display: block; position: absolute; right: 20px; top: 10px; }
+
+    nav ul {
+        flex-direction: column;
+        display: none;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 12px 0;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    header {
+        padding: 80px 15px 40px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    .activities {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-card img {
+        height: 190px;
+    }
+
+    .section-title h2 {
+        font-size: 26px;
+    }
 }
 
-@media (max-width: 480px) {
-    header h1 { font-size: 26px; }
-    header p { font-size: 14px; }
-    nav ul li a { font-size: 14px; }
-}
 </style>
 </head>
 
 <body>
 
-<!-- Menu fixe -->
 <nav>
     <button class="hamburger">&#9776;</button>
     <ul>
@@ -175,46 +231,61 @@ footer {
     </ul>
 </nav>
 
-<header id="accueil">
-    <img src="uf.png" alt="Upgrade Facilities" class="logo">
-    <p>Des hommes et des femmes de métier, engagés pour votre performance</p>
+<header>
+    <img src="uf.png" class="logo" alt="Upgrade Facilities">
+    <p>Des solutions techniques complètes au service de vos espaces professionnels</p>
 </header>
 
 <section>
 
-    <div class="box" id="activites">
-        <h2>Nos activités</h2>
-        <div class="activities">
-            <div class="activity-card">
-                <img src="a1.png" alt="Revêtements muraux">
-                <h3>Revêtements muraux</h3>
-                <p>Papier peint, peinture et créations artistiques alliant esthétisme et durabilité.</p>
-            </div>
-            <div class="activity-card">
-                <img src="a2.png" alt="Revêtements de sol">
-                <h3>Revêtements de sol</h3>
-                <p>Moquette, parquet, vinyle et solutions adaptées à chaque environnement.</p>
-            </div>
-            <div class="activity-card">
-                <img src="a3.png" alt="Installation de chantier">
-                <h3>Installation de chantier</h3>
-                <p>Aménagement optimisé garantissant sécurité, efficacité et conformité aux normes.</p>
-            </div>
-            <div class="activity-card">
-                <img src="a4.png" alt="Nettoyage professionnel">
-                <h3>Nettoyage professionnel</h3>
-                <p>Entretien courant et périodique des locaux, bureaux, immeubles et chantiers.</p>
-            </div>
-        </div>
+    <div class="section-title">
+        <h2>Nos Activités</h2>
+        <span></span>
     </div>
 
-    <div class="box" id="realisations">
-        <h2>Nos Réalisations</h2>
-        <div class="realisations">
-            <div class="realisations-card">
-                <img src="realisation.png" alt="Projet réalisé 1">
+    <div class="activities">
+
+        <div class="activity-card">
+            <img src="a1.png" alt="Revêtements muraux">
+            <div class="activity-content">
+                <h3>Revêtements muraux</h3>
+                <p>Papier peint, peinture et finitions décoratives adaptées aux environnements professionnels.</p>
             </div>
         </div>
+
+        <div class="activity-card">
+            <img src="a2.png" alt="Revêtements de sol">
+            <div class="activity-content">
+                <h3>Revêtements de sol</h3>
+                <p>Parquet, moquette, vinyle et solutions techniques répondant aux contraintes de trafic.</p>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <img src="a3.png" alt="Installation de chantier">
+            <div class="activity-content">
+                <h3>Installation de chantier</h3>
+                <p>Mise en place d’espaces sécurisés, fonctionnels et conformes aux normes en vigueur.</p>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <img src="a4.png" alt="Nettoyage professionnel">
+            <div class="activity-content">
+                <h3>Nettoyage professionnel</h3>
+                <p>Entretien courant et périodique des locaux, immeubles, bureaux et zones sensibles.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="realisations">
+        <div class="section-title">
+            <h2>Nos Réalisations</h2>
+            <span></span>
+        </div>
+
+        <img src="realisation.png" alt="Projet réalisé">
     </div>
 
 </section>
