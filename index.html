@@ -14,10 +14,44 @@
             line-height: 1.6;
         }
 
+        /* Menu fixe */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #0f2a44;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
         header {
             background: #0f2a44;
             color: white;
-            padding: 60px 20px;
+            padding: 100px 20px 60px; /* Ajouter padding-top pour menu */
             text-align: center;
         }
 
@@ -35,27 +69,50 @@
         }
 
         section {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: auto;
             padding: 60px 20px;
         }
 
         h2 {
             color: #0f2a44;
-            margin-bottom: 20px;
-            font-size: 28px;
+            margin-bottom: 30px;
+            font-size: 32px;
         }
 
         .box {
             background: white;
             padding: 30px;
             border-radius: 8px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
-        ul {
-            padding-left: 20px;
+        .activities, .realisations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .activity-card, .realisations-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+            flex: 1 1 calc(50% - 20px);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .activity-card:hover, .realisations-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .activity-card img, .realisations-card img {
+            max-width: 100%;
+            border-radius: 6px;
+            margin-bottom: 15px;
         }
 
         footer {
@@ -65,23 +122,48 @@
             padding: 30px 15px;
             font-size: 14px;
         }
-		
-		.logo {
-    max-width: 420px;
-    width: 90%;
-    margin-bottom: 25px;
-}
 
+        .logo {
+            max-width: 420px;
+            width: 90%;
+            margin-bottom: 25px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .activity-card, .realisations-card {
+                flex: 1 1 100%;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-<header>
+<!-- Menu fixe -->
+<nav>
+    <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#activites">Activités</a></li>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#valeurs">Valeurs</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<header id="accueil">
     <img src="uf.png" alt="Upgrade Facilities" class="logo">
     <p>Des hommes et des femmes de métier, engagés pour votre performance</p>
 </header>
-
 
 <section>
     <div class="box">
@@ -91,50 +173,45 @@
             Elle propose des solutions sur mesure, parfaitement adaptées aux besoins spécifiques de chaque client,
             en s’appuyant sur une équipe expérimentée et un engagement fort en faveur d’un entrepreneuriat responsable.
         </p>
-        <p>
-            Forte de son expertise, l’entreprise a su gagner la confiance de grandes enseignes grâce à la qualité
-            et à la rigueur de ses prestations, alliant performance, respect de l’environnement et engagement sociétal.
-        </p>
     </div>
 
-    <div class="box">
-        <h2>Notre histoire et notre mission</h2>
-        <ul>
-            <li><strong>Fondation :</strong> création d’une entreprise familiale avec des valeurs fortes.</li>
-            <li><strong>Développement :</strong> expansion des services et acquisition d’expertise.</li>
-            <li><strong>Innovation :</strong> adoption de pratiques durables et responsables.</li>
-            <li><strong>Aujourd’hui :</strong> partenaire de confiance pour de grandes entreprises.</li>
-        </ul>
+    <div class="box" id="activites">
+        <h2>Nos activités</h2>
+        <div class="activities">
+            <div class="activity-card">
+                <img src="a1.png" alt="Revêtements muraux">
+                <h3>Revêtements muraux</h3>
+                <p>Papier peint, peinture et créations artistiques alliant esthétisme et durabilité.</p>
+            </div>
+            <div class="activity-card">
+                <img src="a2.png" alt="Revêtements de sol">
+                <h3>Revêtements de sol</h3>
+                <p>Moquette, parquet, vinyle et solutions adaptées à chaque environnement.</p>
+            </div>
+            <div class="activity-card">
+                <img src="a3.png" alt="Installation de chantier">
+                <h3>Installation de chantier</h3>
+                <p>Aménagement optimisé garantissant sécurité, efficacité et conformité aux normes.</p>
+            </div>
+            <div class="activity-card">
+                <img src="a4.png" alt="Nettoyage professionnel">
+                <h3>Nettoyage professionnel</h3>
+                <p>Entretien courant et périodique des locaux, bureaux, immeubles et chantiers.</p>
+            </div>
+        </div>
     </div>
 
-    <div class="box">
-    <h2>Nos activités</h2>
-    <ul>
-        <li>
-            <strong>Revêtements muraux :</strong>
-            papier peint, peinture et créations artistiques alliant esthétisme et durabilité.
-        </li>
+    <div class="box" id="realisations">
+        <h2>Nos Réalisations</h2>
+        <div class="realisations">
+            <div class="realisations-card">
+                <img src="realisation.png" alt="Projet réalisé 1">
+                <p>Projet 1 – rénovation bureaux</p>
+            </div>
+        </div>
+    </div>
 
-        <li>
-            <strong>Revêtements de sol :</strong>
-            moquette, parquet, vinyle et solutions adaptées à chaque environnement.
-        </li>
-
-        <li>
-            <strong>Installation de chantier :</strong>
-            aménagement optimisé garantissant sécurité, efficacité et conformité aux normes.
-        </li>
-
-        <li>
-            <strong>Nettoyage professionnel :</strong>
-            entretien courant et périodique des locaux, bureaux, immeubles et chantiers,
-            garantissant propreté, hygiène et respect des normes sanitaires.
-        </li>
-    </ul>
-</div>
-
-
-    <div class="box">
+    <div class="box" id="valeurs">
         <h2>Nos valeurs fondamentales</h2>
         <ul>
             <li>Proximité et confiance</li>
@@ -144,31 +221,12 @@
         </ul>
     </div>
 
-    <div class="box">
-        <h2>Notre marché et nos services</h2>
-        <ul>
-            <li>Grandes entreprises</li>
-            <li>Gestionnaires d’immeubles</li>
-            <li>Travaux tous corps d’état</li>
-            <li>Nettoyage professionnel</li>
-        </ul>
-    </div>
-
-    <div class="box">
-        <h2>Notre engagement pour un avenir durable</h2>
-        <ul>
-            <li><strong>Respect environnemental :</strong> utilisation de produits et matériaux écologiques.</li>
-            <li><strong>Équilibre professionnel :</strong> politique favorisant le bien-être des employés.</li>
-            <li><strong>Sécurité prioritaire :</strong> prévention, formation et réduction des risques.</li>
-        </ul>
-    </div>
-
-    <div class="box">
+    <div class="box" id="contact">
         <h2>Contact</h2>
         <p>
             Adresse : 7 Henri Becquerel, 92500 Rueil-Malmaison<br>
             Téléphones : 07 83 52 16 27 / 06 85 21 74 98<br>
-            Emails : contact@upgrade-facilities.com / camillekouka@upgrade-security.com
+            Emails : contact@upgrade-facilities.com / kamillekouka@upgrade-security.com
         </p>
     </div>
 </section>
