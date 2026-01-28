@@ -29,7 +29,7 @@ nav {
 
 nav ul {
     margin: 0;
-    padding: 8px 20px; /* réduit la taille */
+    padding: 8px 20px;
     display: flex;
     justify-content: center;
     list-style: none;
@@ -38,21 +38,18 @@ nav ul {
     overflow: hidden;
 }
 
-nav ul li {
-    margin: 0 12px;
-}
+nav ul li { margin: 0 12px; }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 15px; /* réduit légèrement la taille */
+    font-size: 15px;
     transition: color 0.2s;
 }
 
 nav ul li a:hover { color: #ffd700; }
 
-/* Hamburger bouton */
 .hamburger {
     display: none;
     background: none;
@@ -69,44 +66,86 @@ header {
     color: white;
     padding: 100px 20px 60px;
     text-align: center;
+    position: relative;
 }
 
 header h1 { margin: 0; font-size: 38px; }
-header p {
-    margin-top: 15px;
-    font-size: 18px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
+header p { margin-top: 15px; font-size: 18px; max-width: 800px; margin-left: auto; margin-right: auto; }
 
 .logo { max-width: 420px; width: 90%; margin-bottom: 25px; }
 
 /* ---------- Sections ---------- */
 section { max-width: 1200px; margin: auto; padding: 60px 20px; }
 
+/* ---------- Boxes ---------- */
 .box {
     background: white;
-    padding: 30px 25px;
-    margin-bottom: 40px;
-    border-radius: 10px;
+    padding: 40px 30px;
+    margin-bottom: 50px;
+    border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    transition: transform 0.2s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.box:hover { transform: translateY(-3px); }
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
 
 h2 {
     color: #0f2a44;
-    font-size: 30px;
-    margin-bottom: 25px;
-    letter-spacing: 0.5px;
-    cursor: default; /* plus repliable */
+    font-size: 32px;
+    margin-bottom: 30px;
+    position: relative;
 }
 
-/* ---------- Historique ---------- */
-.history-step { margin-bottom: 15px; }
-.history-step strong { display: block; margin-bottom: 5px; color: #0f2a44; }
+h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 60px;
+    height: 4px;
+    background: #ffd700;
+    border-radius: 2px;
+}
+
+/* ---------- Timeline graphique ---------- */
+.timeline {
+    position: relative;
+    margin-left: 20px;
+    padding-left: 30px;
+    border-left: 4px solid #0f2a44;
+}
+
+.timeline-step {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-step::before {
+    content: "";
+    position: absolute;
+    left: -14px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background: #ffd700;
+    border-radius: 50%;
+    border: 3px solid #0f2a44;
+}
+
+.timeline-step strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #0f2a44;
+    font-size: 18px;
+}
+
+.timeline-step p {
+    margin: 0;
+    font-size: 16px;
+}
 
 /* ---------- Activités et Réalisations ---------- */
 .activities, .realisations {
@@ -118,19 +157,19 @@ h2 {
 
 .activity-card, .realisations-card {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 5px 18px rgba(0,0,0,0.08);
     flex: 1 1 45%;
     max-width: 500px;
     min-height: 220px;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .activity-card:hover, .realisations-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
 .activity-card img, .realisations-card img {
@@ -157,7 +196,7 @@ footer {
 @media (max-width: 768px) {
     .activity-card, .realisations-card { flex: 1 1 100%; min-height: auto; }
     header { padding: 60px 15px 30px; }
-    h2 { font-size: 24px; }
+    h2 { font-size: 26px; }
     p, li { font-size: 15px; }
     nav ul { flex-direction: column; max-height: 0; }
     nav ul.show { max-height: 500px; }
@@ -175,9 +214,8 @@ footer {
 
 <body>
 
-<!-- Menu fixe -->
 <nav>
-    <button class="hamburger">&#9776;</button> <!-- icône hamburger -->
+    <button class="hamburger">&#9776;</button>
     <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="activite.html">Activité</a></li>
@@ -191,24 +229,30 @@ footer {
 </header>
 
 <section>
+    <!-- Timeline histoire -->
     <div class="box" id="histoire">
         <h2>Notre Histoire et Notre Mission</h2>
-        <div class="box-content">
-            <div class="history-step">
-                <strong>1. Fondation :</strong> Création d'une entreprise familiale avec des valeurs fortes.
+        <div class="timeline">
+            <div class="timeline-step">
+                <strong>1. Fondation :</strong>
+                <p>Création d'une entreprise familiale avec des valeurs fortes.</p>
             </div>
-            <div class="history-step">
-                <strong>2. Développement :</strong> Expansion des services et acquisition d'expertise.
+            <div class="timeline-step">
+                <strong>2. Développement :</strong>
+                <p>Expansion des services et acquisition d'expertise.</p>
             </div>
-            <div class="history-step">
-                <strong>3. Innovation :</strong> Adoption de pratiques durables et responsables.
+            <div class="timeline-step">
+                <strong>3. Innovation :</strong>
+                <p>Adoption de pratiques durables et responsables.</p>
             </div>
-            <div class="history-step">
-                <strong>4. Aujourd'hui :</strong> Partenaire de confiance pour de grandes entreprises.
+            <div class="timeline-step">
+                <strong>4. Aujourd'hui :</strong>
+                <p>Partenaire de confiance pour de grandes entreprises.</p>
             </div>
         </div>
     </div>
 
+    <!-- Excellence -->
     <div class="box">
         <h2>L’excellence et la responsabilité au cœur de notre métier</h2>
         <p>
@@ -218,6 +262,7 @@ footer {
         </p>
     </div>
 
+    <!-- Engagement -->
     <div class="box" id="engagement">
         <h2>Notre Engagement pour un Avenir Durable</h2>
         <ul>
@@ -227,6 +272,7 @@ footer {
         </ul>
     </div>
 
+    <!-- Valeurs -->
     <div class="box" id="valeurs">
         <h2>Nos valeurs fondamentales</h2>
         <ul>
@@ -237,6 +283,7 @@ footer {
         </ul>
     </div>
 
+    <!-- Marché et services -->
     <div class="box" id="marche">
         <h2>Notre Marché et Nos Services</h2>
         <ul>
