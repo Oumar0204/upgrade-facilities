@@ -220,6 +220,111 @@ html {
     }
 }
 
+/* Sections repliables */
+.box h2 {
+    cursor: pointer;
+    position: relative;
+}
+
+.box h2::after {
+    content: '\25BC'; /* petite flèche */
+    position: absolute;
+    right: 15px;
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+
+.box.collapsed h2::after {
+    transform: rotate(-90deg);
+}
+
+.box.collapsed .box-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.box-content {
+    max-height: 1000px; /* assez grand pour le contenu */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+/* Menu fixe */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #0f2a44;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Menu principal */
+nav ul {
+    margin: 0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+}
+
+/* Menu items */
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Hamburger bouton */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+/* Mobile / demi-écran */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        max-height: 0;       /* caché par défaut */
+    }
+
+    nav ul.show {
+        max-height: 500px;   /* visible quand déroulé */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: block; /* montre le bouton hamburger */
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+}
+
+
     </style>
 </head>
 
@@ -227,17 +332,14 @@ html {
 
 <!-- Menu fixe -->
 <nav>
+    <button class="hamburger">&#9776;</button> <!-- icône hamburger -->
     <ul>
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#histoire">Histoire & Mission</a></li>
-        <li><a href="#activites">Activités</a></li>
-        <li><a href="#realisations">Réalisations</a></li>
-        <li><a href="#engagement">Engagement</a></li>
-        <li><a href="#valeurs">Valeurs</a></li>
-        <li><a href="#marche">Marché & Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
+
+
 
 <header id="accueil">
     <img src="uf.png" alt="Upgrade Facilities" class="logo">
@@ -246,7 +348,8 @@ html {
 
 <section>
     <div class="box" id="histoire">
-        <h2>Notre Histoire et Notre Mission</h2>
+    <h2>Notre Histoire et Notre Mission</h2>
+    <div class="box-content">
         <div class="history-step">
             <strong>1. Fondation :</strong>
             Création d'une entreprise familiale avec des valeurs fortes.
@@ -264,6 +367,8 @@ html {
             Partenaire de confiance pour de grandes entreprises.
         </div>
     </div>
+</div>
+
 
     <div class="box">
         <h2>L’excellence et la responsabilité au cœur de notre métier</h2>
@@ -346,20 +451,26 @@ html {
             <li><strong>Nettoyage Professionnel :</strong> Entretien courant et périodique des espaces</li>
         </ul>
     </div>
-
-    <div class="box" id="contact">
-        <h2>Contact</h2>
-        <p>
-            Adresse : 7 Henri Becquerel, 92500 Rueil-Malmaison<br>
-            Téléphones : 07 83 52 16 27 / 06 85 21 74 98<br>
-            Emails : contact@upgrade-facilities.com / kamillekouka@upgrade-security.com
-        </p>
-    </div>
 </section>
 
 <footer>
     © Upgrade Facilities – Tous droits réservés
 </footer>
+<script>
+document.querySelectorAll('.box h2').forEach(header => {
+    header.addEventListener('click', () => {
+        const box = header.parentElement;
+        box.classList.toggle('collapsed');
+    });
+});
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+});
+</script>
 
 </body>
 </html>
