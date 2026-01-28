@@ -1,215 +1,214 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Upgrade Facilities - Contact</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Upgrade Facilities - Contact</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f6f8;
-            color: #222;
-            line-height: 1.6;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6f8;
+    color: #222;
+    line-height: 1.6;
+}
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #0f2a44;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+/* ---------- Menu fixe ---------- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #0f2a44;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-        nav ul {
-            margin: 0;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-            transition: max-height 0.3s ease;
-            overflow: hidden;
-        }
+nav ul {
+    margin: 0;
+    padding: 8px 20px; /* barre de nav plus compacte */
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+}
 
-        nav ul li {
-            margin: 0 15px;
-        }
+nav ul li {
+    margin: 0 12px;
+}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            transition: color 0.2s;
-        }
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: color 0.2s;
+}
 
-        nav ul li a:hover {
-            color: #ffd700;
-        }
+nav ul li a:hover { color: #ffd700; }
 
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            padding: 10px 15px;
-        }
+/* Hamburger bouton */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+}
 
-        header {
-            background: #0f2a44;
-            color: white;
-            padding: 100px 20px 60px;
-            text-align: center;
-        }
+/* ---------- Header ---------- */
+header {
+    background: #0f2a44;
+    color: white;
+    padding: 100px 20px 60px;
+    text-align: center;
+}
 
-        header img.logo {
-            max-width: 420px;
-            width: 90%;
-            margin-bottom: 25px;
-        }
+header img.logo {
+    max-width: 420px;
+    width: 90%;
+    margin-bottom: 25px;
+}
 
-        section {
-            max-width: 1200px;
-            margin: auto;
-            padding: 60px 20px;
-        }
+/* ---------- Sections ---------- */
+section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+}
 
-        /* ---------- Contact Form ---------- */
-        .contact-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-        }
+/* ---------- Contact Form ---------- */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
 
-        .contact-info {
-            flex: 1 1 300px;
-        }
+.contact-info {
+    flex: 1 1 300px;
+}
 
-        .contact-info h2 {
-            color: #0f2a44;
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
+.contact-info h2 {
+    color: #0f2a44;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
 
-        .contact-info p {
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
+.contact-info p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
 
-        .contact-info .details {
-            font-size: 15px;
-            line-height: 1.5;
-        }
+.contact-info .details {
+    font-size: 15px;
+    line-height: 1.5;
+}
 
-        .contact-info .details a {
-            color: #0f2a44;
-            text-decoration: none;
-        }
+.contact-info .details a {
+    color: #0f2a44;
+    text-decoration: none;
+}
 
-        .contact-info .details a:hover {
-            color: #ffd700;
-        }
+.contact-info .details a:hover {
+    color: #ffd700;
+}
 
-        .contact-form {
-            flex: 1 1 300px;
-        }
+.contact-form {
+    flex: 1 1 300px;
+}
 
-        .contact-form form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        .contact-form label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #0f2a44;
-        }
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #0f2a44;
+}
 
-        .contact-form input,
-        .contact-form textarea {
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 15px;
-            width: 100%;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: #0f2a44;
-        }
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #0f2a44;
+}
 
-        .contact-form textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
 
-        .contact-form button {
-            background: #0f2a44;
-            color: white;
-            border: none;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+.contact-form button {
+    background: #0f2a44;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
-        .contact-form button:hover {
-            background: #ffd700;
-            color: #0f2a44;
-        }
+.contact-form button:hover {
+    background: #ffd700;
+    color: #0f2a44;
+}
 
-        footer {
-            background: #0f2a44;
-            color: white;
-            text-align: center;
-            padding: 30px 15px;
-            font-size: 14px;
-            margin-top: 40px;
-        }
+footer {
+    background: #0f2a44;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    font-size: 14px;
+    margin-top: 40px;
+}
 
-        @media (max-width: 768px) {
-            .contact-wrapper {
-                flex-direction: column;
-            }
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .contact-wrapper { flex-direction: column; }
 
-            nav ul {
-                flex-direction: column;
-                max-height: 0;
-            }
+    nav ul {
+        flex-direction: column;
+        max-height: 0;
+    }
 
-            nav ul.show {
-                max-height: 500px;
-            }
+    nav ul.show { max-height: 500px; }
 
-            nav ul li {
-                margin: 10px 0;
-                text-align: center;
-            }
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
 
-            .hamburger {
-                display: block;
-                position: absolute;
-                right: 20px;
-                top: 10px;
-            }
-        }
-    </style>
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -218,7 +217,7 @@
     <button class="hamburger">&#9776;</button>
     <ul>
         <li><a href="index.html">Accueil</a></li>
-		<li><a href="activite.html">Activite</a></li>
+        <li><a href="activite.html">Activité</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
@@ -232,17 +231,32 @@
     <div class="contact-wrapper">
 
         <!-- LEFT COLUMN : TEXT + INFO -->
-        <div class="contact-info">
-            <h2>Restons en contact</h2>
-            <p>
-                Vous êtes artiste, partenaire ou porteur de projet ? Contactez l’association pour échanger et collaborer.
-            </p><p>
-            Adresse : 7 Henri Becquerel, 92500 Rueil-Malmaison<br>
-            Téléphones : 07 83 52 16 27 / 06 85 21 74 98<br>
-            Emails : contact@upgrade-facilities.com / kamillekouka@upgrade-security.com
-        </p>
-    </div>
-        </div>
+        <<div class="contact-info">
+    <h2>Restons en contact</h2>
+    <p>
+        Adresse : 7 Henri Becquerel, 92500 Rueil-Malmaison<br>
+        Téléphones : 07 83 52 16 27 / 06 85 21 74 98<br>
+        Emails : contact@upgrade-facilities.com / kamillekouka@upgrade-security.com
+    </p>
+
+    <!-- MAP -->
+    <!-- MAP -->
+<div class="contact-map" style="margin-top:20px; height:300px; border-radius:12px; overflow:hidden;">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.991434516175!2d2.178903815674307!3d48.87999837929043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e672d6b3c9b5ff%3A0x4e4eb8e15db4e2cf!2s7%20Rue%20Henri%20Becquerel%2C%2092500%20Rueil-Malmaison%2C%20France!5e0!3m2!1sfr!2sus!4v1706496000000!5m2!1sfr!2sus" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+</div>
+
+
+
 
         <!-- RIGHT COLUMN : FORM -->
         <div class="contact-form">
@@ -256,7 +270,7 @@
                 <label>E-mail *</label>
                 <input type="email" name="email" placeholder="Votre email" required>
 
-                <input type="hidden" name="_subject" value="Nouveau message – Site JSM">
+                <input type="hidden" name="_subject" value="Nouveau message – Site Upgrade Facilities">
 
                 <label>Message</label>
                 <textarea name="message" placeholder="Votre message" required></textarea>
@@ -273,12 +287,12 @@
 </footer>
 
 <script>
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('nav ul');
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
 
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-    });
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+});
 </script>
 
 </body>
