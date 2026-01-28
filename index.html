@@ -6,154 +6,220 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f6f8;
-            color: #222;
-            line-height: 1.6;
-        }
+/* ---------- Styles globaux ---------- */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6f8;
+    color: #222;
+    line-height: 1.6;
+}
 
-        /* Menu fixe */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #0f2a44;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+ul {
+    padding-left: 20px;
+}
 
-        nav ul {
-            margin: 0;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
+/* ---------- Menu fixe ---------- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #0f2a44;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-        nav ul li {
-            margin: 0 15px;
-        }
+nav ul {
+    margin: 0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            transition: color 0.2s;
-        }
+nav ul li {
+    margin: 0 15px;
+}
 
-        nav ul li a:hover {
-            color: #ffd700;
-        }
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.2s;
+}
 
-        header {
-            background: #0f2a44;
-            color: white;
-            padding: 100px 20px 60px; /* padding-top pour menu fixe */
-            text-align: center;
-        }
+nav ul li a:hover {
+    color: #ffd700;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 38px;
-        }
+/* ---------- Header ---------- */
+header {
+    background: #0f2a44;
+    color: white;
+    padding: 100px 20px 60px; /* padding-top pour menu fixe */
+    text-align: center;
+}
 
-        header p {
-            margin-top: 15px;
-            font-size: 18px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+header h1 {
+    margin: 0;
+    font-size: 38px;
+}
 
-        section {
-            max-width: 1200px;
-            margin: auto;
-            padding: 60px 20px;
-        }
+header p {
+    margin-top: 15px;
+    font-size: 18px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-        h2 {
-            color: #0f2a44;
-            margin-bottom: 30px;
-            font-size: 32px;
-        }
+/* Logo */
+.logo {
+    max-width: 420px;
+    width: 90%;
+    margin-bottom: 25px;
+}
 
-        .box {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
+/* ---------- Sections ---------- */
+section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+}
 
-        .activities, .realisations {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+.box {
+    background: white;
+    padding: 30px 25px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
 
-        .activity-card, .realisations-card {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-            flex: 1 1 calc(50% - 20px);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+.box:hover {
+    transform: translateY(-3px);
+}
 
-        .activity-card:hover, .realisations-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
+h2 {
+    color: #0f2a44;
+    font-size: 30px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
 
-        .activity-card img, .realisations-card img {
-            max-width: 100%;
-            border-radius: 6px;
-            margin-bottom: 15px;
-        }
+p, li {
+    font-size: 16px;
+    line-height: 1.65;
+}
 
-        footer {
-            background: #0f2a44;
-            color: white;
-            text-align: center;
-            padding: 30px 15px;
-            font-size: 14px;
-        }
+/* ---------- Historique ---------- */
+.history-step {
+    margin-bottom: 15px;
+}
 
-        .logo {
-            max-width: 420px;
-            width: 90%;
-            margin-bottom: 25px;
-        }
+.history-step strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #0f2a44;
+}
 
-        ul {
-            padding-left: 20px;
-        }
+/* ---------- Activités et Réalisations ---------- */
+.activities, .realisations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
 
-        .history-step {
-            margin-bottom: 15px;
-        }
+.activity-card, .realisations-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    flex: 1 1 45%; /* 2 par ligne par défaut */
+    max-width: 500px;
+    min-height: 220px; /* assure que la carte ne gonfle pas */
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
 
-        .history-step strong {
-            display: block;
-            margin-bottom: 5px;
-            color: #0f2a44;
-        }
+.activity-card:hover, .realisations-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
 
-        @media (max-width: 768px) {
-            .activity-card, .realisations-card {
-                flex: 1 1 100%;
-            }
-            nav ul {
-                flex-direction: column;
-            }
-            nav ul li {
-                margin: 10px 0;
-            }
-        }
+.activity-card img, .realisations-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background: #0f2a44;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    font-size: 14px;
+}
+
+/* ---------- Smooth scroll ---------- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+    .activity-card, .realisations-card {
+        flex: 1 1 48%;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .activity-card, .realisations-card {
+        flex: 1 1 100%; /* une carte par ligne */
+        min-height: auto;
+    }
+
+    header {
+        padding: 60px 15px 30px; /* header plus compact */
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p, li {
+        font-size: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 26px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+}
+
     </style>
 </head>
 
