@@ -51,7 +51,7 @@
         header {
             background: #0f2a44;
             color: white;
-            padding: 100px 20px 60px; /* Ajouter padding-top pour menu */
+            padding: 100px 20px 60px; /* padding-top pour menu fixe */
             text-align: center;
         }
 
@@ -133,6 +133,16 @@
             padding-left: 20px;
         }
 
+        .history-step {
+            margin-bottom: 15px;
+        }
+
+        .history-step strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #0f2a44;
+        }
+
         @media (max-width: 768px) {
             .activity-card, .realisations-card {
                 flex: 1 1 100%;
@@ -153,9 +163,12 @@
 <nav>
     <ul>
         <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#histoire">Histoire & Mission</a></li>
         <li><a href="#activites">Activités</a></li>
         <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#engagement">Engagement</a></li>
         <li><a href="#valeurs">Valeurs</a></li>
+        <li><a href="#marche">Marché & Services</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
@@ -166,6 +179,26 @@
 </header>
 
 <section>
+    <div class="box" id="histoire">
+        <h2>Notre Histoire et Notre Mission</h2>
+        <div class="history-step">
+            <strong>1. Fondation :</strong>
+            Création d'une entreprise familiale avec des valeurs fortes.
+        </div>
+        <div class="history-step">
+            <strong>2. Développement :</strong>
+            Expansion des services et acquisition d'expertise.
+        </div>
+        <div class="history-step">
+            <strong>3. Innovation :</strong>
+            Adoption de pratiques durables et responsables.
+        </div>
+        <div class="history-step">
+            <strong>4. Aujourd'hui :</strong>
+            Partenaire de confiance pour de grandes entreprises.
+        </div>
+    </div>
+
     <div class="box">
         <h2>L’excellence et la responsabilité au cœur de notre métier</h2>
         <p>
@@ -200,17 +233,6 @@
             </div>
         </div>
     </div>
-	
-	<div class="box" id="marche">
-    <h2>Notre Marché et Nos Services</h2>
-    <ul>
-        <li><strong>Grandes Entreprises :</strong> Services adaptés aux besoins spécifiques des corporations</li>
-        <li><strong>Gestionnaires d’Immeubles :</strong> Solutions complètes pour l'entretien et la rénovation</li>
-        <li><strong>Travaux Tous Corps d'État :</strong> Revêtements muraux, revêtements de sol, installation de chantier, menuiserie, plâtrerie...</li>
-        <li><strong>Nettoyage Professionnel :</strong> Entretien courant et périodique des espaces</li>
-    </ul>
-</div>
-
 
     <div class="box" id="realisations">
         <h2>Nos Réalisations</h2>
@@ -220,25 +242,24 @@
             </div>
         </div>
     </div>
-	
-	<div class="box" id="engagement">
-    <h2>Notre Engagement pour un Avenir Durable</h2>
-    <ul>
-        <li>
-            <strong>Respect Environnemental :</strong><br>
-            Utilisation systématique de produits et matériaux écologiques pour réduire notre impact sur l'environnement et promouvoir des pratiques durables.
-        </li>
-        <li>
-            <strong>Équilibre Professionnel :</strong><br>
-            Politique d'horaires adaptée pour favoriser l'harmonie entre vie professionnelle et personnelle de nos employés, garantissant bien-être et efficacité.
-        </li>
-        <li>
-            <strong>Sécurité Prioritaire :</strong><br>
-            Actions de prévention et formation continue pour réduire les risques d'accidents et assurer un environnement de travail sécurisé pour tous.
-        </li>
-    </ul>
-	</div>
 
+    <div class="box" id="engagement">
+        <h2>Notre Engagement pour un Avenir Durable</h2>
+        <ul>
+            <li>
+                <strong>Respect Environnemental :</strong><br>
+                Utilisation systématique de produits et matériaux écologiques pour réduire notre impact sur l'environnement et promouvoir des pratiques durables.
+            </li>
+            <li>
+                <strong>Équilibre Professionnel :</strong><br>
+                Politique d'horaires adaptée pour favoriser l'harmonie entre vie professionnelle et personnelle de nos employés, garantissant bien-être et efficacité.
+            </li>
+            <li>
+                <strong>Sécurité Prioritaire :</strong><br>
+                Actions de prévention et formation continue pour réduire les risques d'accidents et assurer un environnement de travail sécurisé pour tous.
+            </li>
+        </ul>
+    </div>
 
     <div class="box" id="valeurs">
         <h2>Nos valeurs fondamentales</h2>
@@ -247,6 +268,16 @@
             <li>Innovation continue</li>
             <li>Qualité professionnelle</li>
             <li>Engagement sociétal</li>
+        </ul>
+    </div>
+
+    <div class="box" id="marche">
+        <h2>Notre Marché et Nos Services</h2>
+        <ul>
+            <li><strong>Grandes Entreprises :</strong> Services adaptés aux besoins spécifiques des corporations</li>
+            <li><strong>Gestionnaires d’Immeubles :</strong> Solutions complètes pour l'entretien et la rénovation</li>
+            <li><strong>Travaux Tous Corps d'État :</strong> Revêtements muraux, revêtements de sol, installation de chantier, menuiserie, plâtrerie...</li>
+            <li><strong>Nettoyage Professionnel :</strong> Entretien courant et périodique des espaces</li>
         </ul>
     </div>
 
