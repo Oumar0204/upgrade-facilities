@@ -113,23 +113,24 @@ h2::before {
 /* ---------- Timeline graphique ---------- */
 .timeline {
     position: relative;
-    margin-left: 20px;
-    padding-left: 30px;
+    margin-left: 10px;
+    padding-left: 35px;
     border-left: 4px solid #0f2a44;
 }
 
 .timeline-step {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+    padding-left: 5px;
 }
 
 .timeline-step::before {
     content: "";
     position: absolute;
-    left: -14px;
-    top: 0;
-    width: 12px;
-    height: 12px;
+    left: -41px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
     background: #ffd700;
     border-radius: 50%;
     border: 3px solid #0f2a44;
@@ -137,15 +138,18 @@ h2::before {
 
 .timeline-step strong {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     color: #0f2a44;
     font-size: 18px;
+    letter-spacing: 0.3px;
 }
 
 .timeline-step p {
     margin: 0;
     font-size: 16px;
+    color: #333;
 }
+
 
 /* ---------- Activités et Réalisations ---------- */
 .activities, .realisations {
@@ -233,23 +237,27 @@ footer {
     <div class="box" id="histoire">
         <h2>Notre Histoire et Notre Mission</h2>
         <div class="timeline">
-            <div class="timeline-step">
-                <strong>1. Fondation :</strong>
-                <p>Création d'une entreprise familiale avec des valeurs fortes.</p>
-            </div>
-            <div class="timeline-step">
-                <strong>2. Développement :</strong>
-                <p>Expansion des services et acquisition d'expertise.</p>
-            </div>
-            <div class="timeline-step">
-                <strong>3. Innovation :</strong>
-                <p>Adoption de pratiques durables et responsables.</p>
-            </div>
-            <div class="timeline-step">
-                <strong>4. Aujourd'hui :</strong>
-                <p>Partenaire de confiance pour de grandes entreprises.</p>
-            </div>
-        </div>
+    <div class="timeline-step">
+        <strong>Fondation</strong>
+        <p>Création d'une entreprise familiale avec des valeurs fortes.</p>
+    </div>
+
+    <div class="timeline-step">
+        <strong>Développement</strong>
+        <p>Expansion des services et acquisition d'expertise.</p>
+    </div>
+
+    <div class="timeline-step">
+        <strong>Innovation</strong>
+        <p>Adoption de pratiques durables et responsables.</p>
+    </div>
+
+    <div class="timeline-step">
+        <strong>Aujourd'hui</strong>
+        <p>Partenaire de confiance pour de grandes entreprises.</p>
+    </div>
+</div>
+
     </div>
 
     <!-- Excellence -->
