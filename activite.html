@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Upgrade Facilities</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Upgrade Facilities</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<style>
 /* ---------- Styles globaux ---------- */
 body {
     margin: 0;
@@ -15,9 +15,7 @@ body {
     line-height: 1.6;
 }
 
-ul {
-    padding-left: 20px;
-}
+ul { padding-left: 20px; }
 
 /* ---------- Menu fixe ---------- */
 nav {
@@ -31,62 +29,53 @@ nav {
 
 nav ul {
     margin: 0;
-    padding: 10px 20px;
+    padding: 8px 20px; /* réduit la taille */
     display: flex;
     justify-content: center;
     list-style: none;
+    flex-wrap: wrap;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
+nav ul li { margin: 0 12px; }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
     transition: color 0.2s;
 }
 
-nav ul li a:hover {
-    color: #ffd700;
+nav ul li a:hover { color: #ffd700; }
+
+/* Hamburger bouton */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
 }
 
 /* ---------- Header ---------- */
 header {
     background: #0f2a44;
     color: white;
-    padding: 100px 20px 60px; /* padding-top pour menu fixe */
+    padding: 100px 20px 60px;
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 38px;
-}
+header h1 { margin: 0; font-size: 38px; }
+header p { margin-top: 15px; font-size: 18px; max-width: 800px; margin-left: auto; margin-right: auto; }
 
-header p {
-    margin-top: 15px;
-    font-size: 18px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Logo */
-.logo {
-    max-width: 420px;
-    width: 90%;
-    margin-bottom: 25px;
-}
+.logo { max-width: 420px; width: 90%; margin-bottom: 25px; }
 
 /* ---------- Sections ---------- */
-section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 60px 20px;
-}
+section { max-width: 1200px; margin: auto; padding: 60px 20px; }
 
 .box {
     background: white;
@@ -97,32 +86,17 @@ section {
     transition: transform 0.2s;
 }
 
-.box:hover {
-    transform: translateY(-3px);
-}
+.box:hover { transform: translateY(-3px); }
 
 h2 {
     color: #0f2a44;
     font-size: 30px;
     margin-bottom: 25px;
     letter-spacing: 0.5px;
+    cursor: default; /* plus repliable */
 }
 
-p, li {
-    font-size: 16px;
-    line-height: 1.65;
-}
-
-/* ---------- Historique ---------- */
-.history-step {
-    margin-bottom: 15px;
-}
-
-.history-step strong {
-    display: block;
-    margin-bottom: 5px;
-    color: #0f2a44;
-}
+p, li { font-size: 16px; line-height: 1.65; }
 
 /* ---------- Activités et Réalisations ---------- */
 .activities, .realisations {
@@ -136,9 +110,9 @@ p, li {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-    flex: 1 1 45%; /* 2 par ligne par défaut */
+    flex: 1 1 45%;
     max-width: 500px;
-    min-height: 220px; /* assure que la carte ne gonfle pas */
+    min-height: 220px;
     padding: 20px;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -165,182 +139,41 @@ footer {
     font-size: 14px;
 }
 
-/* ---------- Smooth scroll ---------- */
-html {
-    scroll-behavior: smooth;
-}
-
 /* ---------- Responsive ---------- */
-
 @media (max-width: 1024px) {
-    .activity-card, .realisations-card {
-        flex: 1 1 48%;
-        min-height: 200px;
-    }
+    .activity-card, .realisations-card { flex: 1 1 48%; min-height: 200px; }
 }
 
 @media (max-width: 768px) {
-    .activity-card, .realisations-card {
-        flex: 1 1 100%; /* une carte par ligne */
-        min-height: auto;
-    }
-
-    header {
-        padding: 60px 15px 30px; /* header plus compact */
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    p, li {
-        font-size: 15px;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
+    .activity-card, .realisations-card { flex: 1 1 100%; min-height: auto; }
+    header { padding: 60px 15px 30px; }
+    h2 { font-size: 24px; }
+    p, li { font-size: 15px; }
+    nav ul { flex-direction: column; max-height: 0; }
+    nav ul.show { max-height: 500px; }
+    nav ul li { margin: 10px 0; text-align: center; }
+    .hamburger { display: block; position: absolute; right: 20px; top: 10px; }
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 26px;
-    }
-
-    header p {
-        font-size: 14px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
+    header h1 { font-size: 26px; }
+    header p { font-size: 14px; }
+    nav ul li a { font-size: 14px; }
 }
-
-/* Sections repliables */
-.box h2 {
-    cursor: pointer;
-    position: relative;
-}
-
-.box h2::after {
-    content: '\25BC'; /* petite flèche */
-    position: absolute;
-    right: 15px;
-    font-size: 18px;
-    transition: transform 0.3s;
-}
-
-.box.collapsed h2::after {
-    transform: rotate(-90deg);
-}
-
-.box.collapsed .box-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-}
-
-.box-content {
-    max-height: 1000px; /* assez grand pour le contenu */
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-
-/* Menu fixe */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #0f2a44;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* Menu principal */
-nav ul {
-    margin: 0;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    flex-wrap: wrap;
-    transition: max-height 0.3s ease;
-    overflow: hidden;
-}
-
-/* Menu items */
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    transition: color 0.2s;
-}
-
-nav ul li a:hover {
-    color: #ffd700;
-}
-
-/* Hamburger bouton */
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-    padding: 10px 15px;
-}
-
-/* Mobile / demi-écran */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        max-height: 0;       /* caché par défaut */
-    }
-
-    nav ul.show {
-        max-height: 500px;   /* visible quand déroulé */
-    }
-
-    nav ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    .hamburger {
-        display: block; /* montre le bouton hamburger */
-        position: absolute;
-        right: 20px;
-        top: 10px;
-    }
-}
-
-
-    </style>
+</style>
 </head>
 
 <body>
 
 <!-- Menu fixe -->
 <nav>
-    <button class="hamburger">&#9776;</button> <!-- icône hamburger -->
+    <button class="hamburger">&#9776;</button>
     <ul>
         <li><a href="index.html">Accueil</a></li>
-		<li><a href="activite.html">Activite</a></li>
+        <li><a href="activite.html">Activité</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
-
-
 
 <header id="accueil">
     <img src="uf.png" alt="Upgrade Facilities" class="logo">
@@ -383,18 +216,13 @@ nav ul li a:hover {
             </div>
         </div>
     </div>
+
 </section>
 
 <footer>
     © Upgrade Facilities – Tous droits réservés
 </footer>
-<script>
-document.querySelectorAll('.box h2').forEach(header => {
-    header.addEventListener('click', () => {
-        const box = header.parentElement;
-        box.classList.toggle('collapsed');
-    });
-});
+
 <script>
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('nav ul');

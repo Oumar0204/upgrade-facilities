@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Upgrade Facilities</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Upgrade Facilities</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<style>
 /* ---------- Styles globaux ---------- */
 body {
     margin: 0;
@@ -15,9 +15,7 @@ body {
     line-height: 1.6;
 }
 
-ul {
-    padding-left: 20px;
-}
+ul { padding-left: 20px; }
 
 /* ---------- Menu fixe ---------- */
 nav {
@@ -31,41 +29,49 @@ nav {
 
 nav ul {
     margin: 0;
-    padding: 10px 20px;
+    padding: 8px 20px; /* réduit la taille */
     display: flex;
     justify-content: center;
     list-style: none;
+    flex-wrap: wrap;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 12px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px; /* réduit légèrement la taille */
     transition: color 0.2s;
 }
 
-nav ul li a:hover {
-    color: #ffd700;
+nav ul li a:hover { color: #ffd700; }
+
+/* Hamburger bouton */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
 }
 
 /* ---------- Header ---------- */
 header {
     background: #0f2a44;
     color: white;
-    padding: 100px 20px 60px; /* padding-top pour menu fixe */
+    padding: 100px 20px 60px;
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 38px;
-}
-
+header h1 { margin: 0; font-size: 38px; }
 header p {
     margin-top: 15px;
     font-size: 18px;
@@ -74,19 +80,10 @@ header p {
     margin-right: auto;
 }
 
-/* Logo */
-.logo {
-    max-width: 420px;
-    width: 90%;
-    margin-bottom: 25px;
-}
+.logo { max-width: 420px; width: 90%; margin-bottom: 25px; }
 
 /* ---------- Sections ---------- */
-section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 60px 20px;
-}
+section { max-width: 1200px; margin: auto; padding: 60px 20px; }
 
 .box {
     background: white;
@@ -97,32 +94,19 @@ section {
     transition: transform 0.2s;
 }
 
-.box:hover {
-    transform: translateY(-3px);
-}
+.box:hover { transform: translateY(-3px); }
 
 h2 {
     color: #0f2a44;
     font-size: 30px;
     margin-bottom: 25px;
     letter-spacing: 0.5px;
-}
-
-p, li {
-    font-size: 16px;
-    line-height: 1.65;
+    cursor: default; /* plus repliable */
 }
 
 /* ---------- Historique ---------- */
-.history-step {
-    margin-bottom: 15px;
-}
-
-.history-step strong {
-    display: block;
-    margin-bottom: 5px;
-    color: #0f2a44;
-}
+.history-step { margin-bottom: 15px; }
+.history-step strong { display: block; margin-bottom: 5px; color: #0f2a44; }
 
 /* ---------- Activités et Réalisations ---------- */
 .activities, .realisations {
@@ -136,9 +120,9 @@ p, li {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-    flex: 1 1 45%; /* 2 par ligne par défaut */
+    flex: 1 1 45%;
     max-width: 500px;
-    min-height: 220px; /* assure que la carte ne gonfle pas */
+    min-height: 220px;
     padding: 20px;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -165,167 +149,28 @@ footer {
     font-size: 14px;
 }
 
-/* ---------- Smooth scroll ---------- */
-html {
-    scroll-behavior: smooth;
-}
-
 /* ---------- Responsive ---------- */
-
 @media (max-width: 1024px) {
-    .activity-card, .realisations-card {
-        flex: 1 1 48%;
-        min-height: 200px;
-    }
+    .activity-card, .realisations-card { flex: 1 1 48%; min-height: 200px; }
 }
 
 @media (max-width: 768px) {
-    .activity-card, .realisations-card {
-        flex: 1 1 100%; /* une carte par ligne */
-        min-height: auto;
-    }
-
-    header {
-        padding: 60px 15px 30px; /* header plus compact */
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    p, li {
-        font-size: 15px;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
+    .activity-card, .realisations-card { flex: 1 1 100%; min-height: auto; }
+    header { padding: 60px 15px 30px; }
+    h2 { font-size: 24px; }
+    p, li { font-size: 15px; }
+    nav ul { flex-direction: column; max-height: 0; }
+    nav ul.show { max-height: 500px; }
+    nav ul li { margin: 10px 0; text-align: center; }
+    .hamburger { display: block; position: absolute; right: 20px; top: 10px; }
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 26px;
-    }
-
-    header p {
-        font-size: 14px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
+    header h1 { font-size: 26px; }
+    header p { font-size: 14px; }
+    nav ul li a { font-size: 14px; }
 }
-
-/* Sections repliables */
-.box h2 {
-    cursor: pointer;
-    position: relative;
-}
-
-.box h2::after {
-    content: '\25BC'; /* petite flèche */
-    position: absolute;
-    right: 15px;
-    font-size: 18px;
-    transition: transform 0.3s;
-}
-
-.box.collapsed h2::after {
-    transform: rotate(-90deg);
-}
-
-.box.collapsed .box-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-}
-
-.box-content {
-    max-height: 1000px; /* assez grand pour le contenu */
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-
-/* Menu fixe */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #0f2a44;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* Menu principal */
-nav ul {
-    margin: 0;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    flex-wrap: wrap;
-    transition: max-height 0.3s ease;
-    overflow: hidden;
-}
-
-/* Menu items */
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    transition: color 0.2s;
-}
-
-nav ul li a:hover {
-    color: #ffd700;
-}
-
-/* Hamburger bouton */
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-    padding: 10px 15px;
-}
-
-/* Mobile / demi-écran */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        max-height: 0;       /* caché par défaut */
-    }
-
-    nav ul.show {
-        max-height: 500px;   /* visible quand déroulé */
-    }
-
-    nav ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    .hamburger {
-        display: block; /* montre le bouton hamburger */
-        position: absolute;
-        right: 20px;
-        top: 10px;
-    }
-}
-
-
-    </style>
+</style>
 </head>
 
 <body>
@@ -335,11 +180,10 @@ nav ul li a:hover {
     <button class="hamburger">&#9776;</button> <!-- icône hamburger -->
     <ul>
         <li><a href="index.html">Accueil</a></li>
+        <li><a href="activite.html">Activité</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
-
-
 
 <header id="accueil">
     <img src="uf.png" alt="Upgrade Facilities" class="logo">
@@ -348,27 +192,22 @@ nav ul li a:hover {
 
 <section>
     <div class="box" id="histoire">
-    <h2>Notre Histoire et Notre Mission</h2>
-    <div class="box-content">
-        <div class="history-step">
-            <strong>1. Fondation :</strong>
-            Création d'une entreprise familiale avec des valeurs fortes.
-        </div>
-        <div class="history-step">
-            <strong>2. Développement :</strong>
-            Expansion des services et acquisition d'expertise.
-        </div>
-        <div class="history-step">
-            <strong>3. Innovation :</strong>
-            Adoption de pratiques durables et responsables.
-        </div>
-        <div class="history-step">
-            <strong>4. Aujourd'hui :</strong>
-            Partenaire de confiance pour de grandes entreprises.
+        <h2>Notre Histoire et Notre Mission</h2>
+        <div class="box-content">
+            <div class="history-step">
+                <strong>1. Fondation :</strong> Création d'une entreprise familiale avec des valeurs fortes.
+            </div>
+            <div class="history-step">
+                <strong>2. Développement :</strong> Expansion des services et acquisition d'expertise.
+            </div>
+            <div class="history-step">
+                <strong>3. Innovation :</strong> Adoption de pratiques durables et responsables.
+            </div>
+            <div class="history-step">
+                <strong>4. Aujourd'hui :</strong> Partenaire de confiance pour de grandes entreprises.
+            </div>
         </div>
     </div>
-</div>
-
 
     <div class="box">
         <h2>L’excellence et la responsabilité au cœur de notre métier</h2>
@@ -379,56 +218,12 @@ nav ul li a:hover {
         </p>
     </div>
 
-    <div class="box" id="activites">
-        <h2>Nos activités</h2>
-        <div class="activities">
-            <div class="activity-card">
-                <img src="a1.png" alt="Revêtements muraux">
-                <h3>Revêtements muraux</h3>
-                <p>Papier peint, peinture et créations artistiques alliant esthétisme et durabilité.</p>
-            </div>
-            <div class="activity-card">
-                <img src="a2.png" alt="Revêtements de sol">
-                <h3>Revêtements de sol</h3>
-                <p>Moquette, parquet, vinyle et solutions adaptées à chaque environnement.</p>
-            </div>
-            <div class="activity-card">
-                <img src="a3.png" alt="Installation de chantier">
-                <h3>Installation de chantier</h3>
-                <p>Aménagement optimisé garantissant sécurité, efficacité et conformité aux normes.</p>
-            </div>
-            <div class="activity-card">
-                <img src="a4.png" alt="Nettoyage professionnel">
-                <h3>Nettoyage professionnel</h3>
-                <p>Entretien courant et périodique des locaux, bureaux, immeubles et chantiers.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="box" id="realisations">
-        <h2>Nos Réalisations</h2>
-        <div class="realisations">
-            <div class="realisations-card">
-                <img src="realisation.png" alt="Projet réalisé 1">
-            </div>
-        </div>
-    </div>
-
     <div class="box" id="engagement">
         <h2>Notre Engagement pour un Avenir Durable</h2>
         <ul>
-            <li>
-                <strong>Respect Environnemental :</strong><br>
-                Utilisation systématique de produits et matériaux écologiques pour réduire notre impact sur l'environnement et promouvoir des pratiques durables.
-            </li>
-            <li>
-                <strong>Équilibre Professionnel :</strong><br>
-                Politique d'horaires adaptée pour favoriser l'harmonie entre vie professionnelle et personnelle de nos employés, garantissant bien-être et efficacité.
-            </li>
-            <li>
-                <strong>Sécurité Prioritaire :</strong><br>
-                Actions de prévention et formation continue pour réduire les risques d'accidents et assurer un environnement de travail sécurisé pour tous.
-            </li>
+            <li><strong>Respect Environnemental :</strong> Utilisation systématique de produits et matériaux écologiques pour réduire notre impact sur l'environnement et promouvoir des pratiques durables.</li>
+            <li><strong>Équilibre Professionnel :</strong> Politique d'horaires adaptée pour favoriser l'harmonie entre vie professionnelle et personnelle de nos employés, garantissant bien-être et efficacité.</li>
+            <li><strong>Sécurité Prioritaire :</strong> Actions de prévention et formation continue pour réduire les risques d'accidents et assurer un environnement de travail sécurisé pour tous.</li>
         </ul>
     </div>
 
@@ -456,13 +251,7 @@ nav ul li a:hover {
 <footer>
     © Upgrade Facilities – Tous droits réservés
 </footer>
-<script>
-document.querySelectorAll('.box h2').forEach(header => {
-    header.addEventListener('click', () => {
-        const box = header.parentElement;
-        box.classList.toggle('collapsed');
-    });
-});
+
 <script>
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('nav ul');
